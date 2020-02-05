@@ -1,39 +1,57 @@
-console.log('Read begins .. >>')
-read('./files/new1.txt', 'UTF-8')
-    .then(data => {
-        console.log('Success >> ', data)
+var w = require('./write')  
+
+//writing to a file
+w('new3.txt', 'hello file 3')  
+    .then(data => { 
+        console.log('success >> ', data)
     })
     .catch(err => {
-        console.log('Error >> ', err)
+        console.log('error >> ', err)
     })
     .finally(()=>{
-        console.log('Finally block ends')
+        console.log('finally block ends')
     })
 
 
-//rename
-console.log('Rename begins >> ')
-rename('./files/new7.txt', './files/new4.txt')
-    .then(data => {
-        console.log('Successfully renamed >> ', data)
-    })
-    .catch(err => {
-        console.log('Error while renaming >> ', err)
-    })
-    .finally(()=> {
-        console.log('Finally from rename')
-    })
-
-
-    //delete
-   
-    deleteFile('./files/new5.txt')
-        .then(data => {
-            console.log('Successfully deleted >> ', data)
+//read file
+var r = require('./read')
+r('./files/new5.txt', 'UTF-8')
+    .then(data => { 
+            console.log('success >> ', data)
         })
         .catch(err => {
-            console.log('Error while deleting file >> ',  err)
+            console.log('error >> ', err)
         })
         .finally(()=>{
-            console.log('Finally block from delete')
+            console.log('finally block ends from read')
         })
+    
+
+//rename file
+var re = require('./rename')
+re('./files/new3.txt', './files/new0.txt')
+    .then(data => { 
+                console.log('success >> ', data)
+            })
+            .catch(err => {
+                console.log('error >> ', err)
+            })
+            .finally(()=>{
+                console.log('finally block ends from rename')
+            })
+
+//delete file
+var del = require('./delete')
+del('./files/new5.txt')
+    .then(data => { 
+        console.log('success >> ', data)
+    })
+    .catch(err => {
+        console.log('error >> ', err)
+    })
+    .finally(()=>{
+        console.log('finally block ends from delete')
+    })
+
+
+    
