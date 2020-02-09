@@ -18,5 +18,10 @@ router.post('/register',  (req, res, next) => {
 router.get('/forgot-password',  (req, res, next) => {
     
 })
+router.get('/reset-password/:name',  (req, res, next) => {
+    res.json({
+        params : req.params
+    })
+})
 
 module.exports = router
