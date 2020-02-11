@@ -1,5 +1,5 @@
 var express = require('express')
-const port = 8090;
+const port = 8090
 
 var app = express()
 //this app is entire express framework
@@ -7,6 +7,10 @@ var app = express()
 //third party middleware
 const morgan = require('morgan')
 app.use(morgan('dev'))
+
+//user body parser
+var bodyParser = require('body-parser');
+app.use(bodyParser());
 
 //inbuilt middleware (for images, videos and other files)
 //app.use(express.static('files')) //serve locally within express
